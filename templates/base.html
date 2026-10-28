@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}StudySync AI{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="{{ url_for('dashboard') }}"><span class="brand-mark">✦</span><span>StudySync <b>AI</b><small>YOUR SMART STUDY SPACE</small></span></a>
+    <div class="nav-label">WORKSPACE</div>
+    <nav>
+      <a class="nav-link {% if request.endpoint=='dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}"><span>▦</span> Dashboard</a>
+      <a class="nav-link {% if request.endpoint=='subjects_page' %}active{% endif %}" href="{{ url_for('subjects_page') }}"><span>▤</span> My Subjects</a>
+      <a class="nav-link {% if request.endpoint=='tasks_page' %}active{% endif %}" href="{{ url_for('tasks_page') }}"><span>☑</span> Tasks & Assignments</a>
+      <a class="nav-link {% if request.endpoint=='exams_page' %}active{% endif %}" href="{{ url_for('exams_page') }}"><span>◷</span> Exam Planner</a>
+      <a class="nav-link {% if request.endpoint=='timetable' %}active{% endif %}" href="{{ url_for('timetable') }}"><span>▦</span> Smart Timetable</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="mini-illustration">✦</div><b>Small steps, big results.</b><p>Consistency is your superpower. Keep showing up!</p><div class="side-progress"><span></span></div><small>YOU'VE GOT THIS ✨</small></div>
+    <div class="profile"><div class="avatar">S</div><div><b>Student</b><small>Personal workspace</small></div><span class="profile-dots">•••</span></div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar"><div><div class="eyebrow">YOUR PERSONAL LEARNING HUB</div><div class="page-heading">{% block heading %}Dashboard{% endblock %}</div></div><div class="top-actions"><div class="date-pill">◷ <span id="today-label"></span></div><div class="top-avatar">S</div></div></header>
+    <div class="content">
+      {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}{% for category, message in messages %}<div class="flash {{ category }}">{{ message }} <button onclick="this.parentElement.remove()">×</button></div>{% endfor %}{% endif %}{% endwith %}
+      {% block content %}{% endblock %}
+      <footer>Made for your goals, one study session at a time <span>✦ StudySync AI</span></footer>
+    </div>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body></html>
