@@ -44,7 +44,7 @@ This is an academic prototype intended to run locally. The timetable generator i
 
 ![Dashboard Overview](screenshots/dashboard-overview.png)
 
-![Dashboard Progress](screenshots/dashboard-progress.png)
+![Dashboard Overview](screenshots/dashboard-overview.png)
 
 ### My Subjects
 
