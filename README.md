@@ -38,3 +38,21 @@ The `studysync.db` file is automatically created beside `app.py`. Keep it if you
 
 ## Notes
 This is an academic prototype intended to run locally. The timetable generator is a simple rule-based planner, not a machine-learning model. Add authentication and production security before deploying publicly.
+## Screenshots
+
+### Dashboard
+![Dashboard Overview](screenshots/dashboard-overview.png)
+
+![Dashboard Progress](screenshots/dashboard-progress.png)
+
+### My Subjects
+![My Subjects](screenshots/subjects.png)
+
+### Tasks & Assignments
+![Tasks and Assignments](screenshots/tasks.png)
+
+### Exam Planner
+![Exam Planner](screenshots/exam-planner.png)
+
+### Smart Timetable
+![Smart Timetable](screenshots/smart-timetable.png)
